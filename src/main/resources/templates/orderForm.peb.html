@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Taco Cloud</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<form method="POST" action="/orders" object="tacoOrder">
+    <h1>Order your taco creations!</h1>
+
+    <img width="250px" height="250px" src="/images/TacoCloud.png"/>
+
+    <h3>Your tacos in this order:</h3>
+    <a href="/design" id="another">Design another taco</a><br/>
+    <ul>
+        {% for taco in tacoOrder.tacos %}
+        <li>{{ taco.name }}</li>
+        {% endfor %}
+    </ul>
+
+    <h3>Deliver my taco masterpieces to...</h3>
+    <label for="deliveryName">Name: </label>
+    <input type="text" name="deliveryName"/>
+    <span class="validationError">
+    </span>
+    <br/>
+
+    <label for="deliveryStreet">Street address: </label>
+    <input type="text" name="deliveryStreet"/>
+    <span class="validationError">
+
+        </span>
+    <br/>
+
+    <label for="deliveryCity">City: </label>
+    <input type="text" name="deliveryCity"/>
+    <span class="validationError">
+
+        </span>
+    <br/>
+
+    <label for="deliveryState">State: </label>
+    <input type="text" name="deliveryState"/>
+    <span class="validationError">
+
+        </span>
+    <br/>
+
+    <label for="deliveryZip">Zip code: </label>
+    <input type="text" name="deliveryZip"/>
+    <span class="validationError">
+
+        </span>
+    <br/>
+
+    <h3>Here's how I'll pay...</h3>
+    <label for="ccNumber">Credit Card #: </label>
+    <input type="text" name="ccNumber"/>
+    <span class="validationError">
+
+        </span>
+    <br/>
+
+    <label for="ccExpiration">Expiration: </label>
+    <input type="text" name="ccExpiration"/>
+    <span class="validationError">
+
+        </span>
+    <br/>
+
+    <label for="ccCVV">CVV: </label>
+    <input type="text" name="ccCVV"/>
+    <span class="validationError">
+
+        </span>
+    <br/>
+
+    <input type="submit" value="Submit Order"/>
+</form>
+</body>
+</html>

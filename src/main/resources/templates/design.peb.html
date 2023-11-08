@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Taco Cloud</title>
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    <body>
+        <h1>Design your taco!</h1>
+        <img width="250" height="250" src="/images/TacoCloud.png"/>
+
+        <form method="post" action="/design">
+            <div class="grid">
+                <div class="ingredient-group" id="wraps">
+                    <div>
+                        <h3>Designate your wrap:</h3>
+                        {% for ingredient in wrap %}
+                            <input name="ingredients" type="checkbox" value="{{ingredient.id}}"/>
+                            <span>{{ingredient.name}}</span>
+                            <br/>
+                        {% else %}
+                            <p> There are no ingredient. </p>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="ingredient-group" id="proteins">
+                    <div>
+                        <h3>Pick your protein:</h3>
+                        {% for ingredient in protein %}
+                            <input name="ingredients" type="checkbox" value="{{ingredient.id}}"/>
+                            <span>{{ingredient.name}}</span>
+                            <br/>
+                        {% else %}
+                            <p> There are no ingredient. </p>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="ingredient-group" id="cheeses">
+                    <div>
+                        <h3>Pick your cheeses:</h3>
+                        {% for ingredient in cheese %}
+                            <input name="ingredients" type="checkbox" value="{{ingredient.id}}"/>
+                            <span>{{ingredient.name}}</span>
+                            <br/>
+                        {% else %}
+                            <p> There are no ingredient. </p>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="ingredient-group" id="veggies">
+                    <div>
+                        <h3>Pick your veggies:</h3>
+                        {% for ingredient in veggies %}
+                            <input name="ingredients" type="checkbox" value="{{ingredient.id}}"/>
+                            <span>{{ingredient.name}}</span>
+                            <br/>
+                        {% else %}
+                            <p> There are no ingredient. </p>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div class="ingredient-group" id="sauces">
+                    <div>
+                        <h3>Pick your sauces:</h3>
+                        {% for ingredient in sauce %}
+                            <input name="ingredients" type="checkbox" value="{{ingredient.id}}"/>
+                            <span>{{ingredient.name}}</span>
+                            <br/>
+                        {% else %}
+                            <p> There are no ingredient. </p>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div>
+                    <h3>Name your taco creation:</h3>
+                    <input name="name" type="text" />
+                    <br/>
+                    <button type="submit">Submit Your Taco</button>
+                </div>
+
+            </div>
+        </form>
+    </body>
+</html>
